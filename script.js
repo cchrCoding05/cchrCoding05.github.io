@@ -9,7 +9,6 @@ let isLoading = false;
 let controller = null;
 
 async function fetchCharacters(page = 1, searchTerm = '') {
-    // Agregamos un pequeño delay para ver mejor el efecto del AbortController
     await new Promise(resolve => setTimeout(resolve, 500));
 
     if (controller) {
@@ -33,7 +32,6 @@ async function fetchCharacters(page = 1, searchTerm = '') {
 
         const response = await fetch(url, { 
             signal,
-            // Agregamos headers para hacer la petición más visible
             headers: {
                 'Cache-Control': 'no-cache',
                 'Pragma': 'no-cache'
@@ -181,5 +179,4 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Cargar personajes iniciales
 fetchCharacters();
